@@ -7,8 +7,7 @@ class Dentaku():
         self.second_term = 0
         self.result = 0
         self.operation = '+'
-        # 【補足】__init__(self)が発火したことを教える
-        print("__init__(self)が発火したよ！")
+
 
     # 足し算か引き算かを判別 => 計算するメソッド
     def do_operation(self):
@@ -16,13 +15,13 @@ class Dentaku():
             self.result = self.first_term + self.second_term
         elif self.operation == '-':
             self.result = self.first_term - self.second_term
-        # 【補足】do_operation(self)が発火したことを教える
-        print("do_operation(self)が発火したよ！")
         
 
-# 変数:dentaku に クラス(型):Dentaku を作成するよ！
+# 変数:dentaku に クラス(型):Dentaku を作成するよ！(インスタンス化)
 dentaku = Dentaku()
 
+
+# 無限ループだ！！
 while True:
     # 入力(数字)
     f = int(input("First term "))
