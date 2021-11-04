@@ -1,45 +1,43 @@
-# クラスの宣言 (Dentaku っていう型を作るよ！)
-class Dentaku():
-
-    # 初期化するメソッド(クラスを作成した時に自動的に発火するよ！)
-    def __init__(self):
-        self.first_term = 0
-        self.second_term = 0
-        self.result = 0
-        self.operation = '+'
+from typing import Awaitable
 
 
-    # 足し算か引き算かを判別 => 計算するメソッド
-    def do_operation(self):
-        if self.operation == '+':
-            self.result = self.first_term + self.second_term
-        elif self.operation == '-':
-            self.result = self.first_term - self.second_term
-        
+class StdInfo:
 
-# 変数:dentaku に クラス(型):Dentaku を作成するよ！(インスタンス化)
-dentaku = Dentaku()
+    def __init__(self, num, adr, p_num, adm, cry):
+        self.number = num           # 学生番号: int
+        self.address = adr          # 住所: str
+        self.phone_number = p_num   # 電話番号: int
+        self.admission_YM = adm     # 入学年月: str
+        self.cry = cry              # 鳴き声: str
+
+    # 電話番号を変更するメソッド
+    def ChangePhoneNumber(self, phone_number):
+
+        # 入力が整数型であるか
+        if type(phone_number) == type(int()):
+            self.phone_number = phone_number
+            print('電話番号を変更しました')
+        else:
+            print('電話番号を変更しませんでした')
 
 
-# 無限ループだ！！
-while True:
-    # 入力(数字)
-    f = int(input("First term "))
-    # 入力結果を クラス内変数:first_term に格納
-    dentaku.first_term = f
+# インスタンス化
+cat = StdInfo(123456, 'どこかの屋根', 222, '2020/4', 'にゃん')
+bird = StdInfo(106331, 'どこかの森', 106, '2021/4', 'こけこっこ')
 
-    # 入力(文字: + か -)
-    o = input("Operation ")
-    dentaku.operation=o
 
-    # 入力(数字)
-    s = int(input("Second term "))
-    # 入力結果を クラス内変数:second_term に格納
-    dentaku.second_term=s
+print(cat.number)
+print(bird.number)
+print(cat.address)
+print(bird.address)
 
-    # メソッド:do_operation を発火
-    dentaku.do_operation()
 
-    # クラス内変数:result に格納されたものを出力
-    r = dentaku.result
-    print("Result ", r)
+print(cat.phone_number)
+
+# 電話番号の変更(整数型)
+cat.ChangePhoneNumber(999)
+print(cat.phone_number)
+
+# 電話番号の変更(文字列)
+cat.ChangePhoneNumber('これは文字列')
+print(cat.phone_number)
